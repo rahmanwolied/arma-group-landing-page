@@ -1,0 +1,63 @@
+---
+const milestones = [
+  { year: '1985', title: 'The Beginning', desc: 'ARMA Group founded in Dhaka with a vision to build Bangladesh\'s infrastructure.' },
+  { year: '1995', title: 'Power Expansion', desc: 'Expanded into electrical construction and transmission line projects nationwide.' },
+  { year: '2005', title: 'Diversification', desc: 'Entered real estate development and line hardware manufacturing.' },
+  { year: '2015', title: 'New Horizons', desc: 'Launched agriculture and education ventures, becoming a true conglomerate.' },
+  { year: '2025', title: 'Future Forward', desc: 'Expanding into renewable energy and sustainable infrastructure for tomorrow.' },
+];
+---
+
+<section id="journey" class="py-24 lg:py-32 bg-arma-bg overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="text-center mb-20 fade-up">
+      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">Our History</span>
+      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Journey</h2>
+      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+    </div>
+
+    <!-- Desktop Timeline -->
+    <div class="hidden md:block relative">
+      <!-- Line -->
+      <div class="absolute top-6 left-0 right-0 h-px bg-arma-dark/10"></div>
+
+      <div class="grid grid-cols-5 gap-8">
+        {milestones.map((m, i) => (
+          <div class={`relative fade-up fade-up-delay-${i + 1}`}>
+            <!-- Dot -->
+            <div class="relative z-10 w-12 h-12 rounded-full bg-white border-2 border-arma flex items-center justify-center mx-auto mb-6 shadow-sm">
+              <div class="w-3 h-3 rounded-full bg-arma"></div>
+            </div>
+            <!-- Content -->
+            <div class="text-center">
+              <span class="font-display text-3xl text-arma">{m.year}</span>
+              <h3 class="font-semibold text-sm mt-2 mb-1">{m.title}</h3>
+              <p class="text-arma-dark/50 text-xs leading-relaxed">{m.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Mobile Timeline -->
+    <div class="md:hidden relative pl-8">
+      <!-- Vertical line -->
+      <div class="absolute top-0 bottom-0 left-3 w-px bg-arma-dark/10"></div>
+
+      <div class="flex flex-col gap-12">
+        {milestones.map((m, i) => (
+          <div class={`relative fade-up fade-up-delay-${Math.min(i + 1, 4)}`}>
+            <!-- Dot -->
+            <div class="absolute -left-8 top-0 w-6 h-6 rounded-full bg-white border-2 border-arma flex items-center justify-center">
+              <div class="w-2 h-2 rounded-full bg-arma"></div>
+            </div>
+            <span class="font-display text-2xl text-arma">{m.year}</span>
+            <h3 class="font-semibold text-sm mt-1 mb-1">{m.title}</h3>
+            <p class="text-arma-dark/50 text-sm leading-relaxed">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

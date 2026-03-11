@@ -1,0 +1,44 @@
+---
+const leaders = [
+  {
+    name: 'Md. Abdul Matin',
+    title: 'Chairman',
+    initials: 'AM',
+  },
+  {
+    name: 'Md. Rafiqul Islam',
+    title: 'Managing Director',
+    initials: 'RI',
+  },
+  {
+    name: 'Engineering Division',
+    title: 'Technical Leadership',
+    initials: 'ET',
+  },
+];
+---
+
+<section id="leadership" class="py-24 lg:py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <!-- Heading -->
+    <div class="text-center mb-16 fade-up">
+      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">The Team</span>
+      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Leadership</h2>
+      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
+      {leaders.map((leader, i) => (
+        <div class={`group text-center fade-up fade-up-delay-${i + 1}`}>
+          <!-- Photo placeholder -->
+          <div class="w-36 h-36 rounded-full mx-auto mb-6 bg-gradient-to-br from-arma-light to-arma/10 flex items-center justify-center border-2 border-arma/10 group-hover:border-arma/30 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-arma/10">
+            <span class="font-display text-3xl text-arma/40 group-hover:text-arma/60 transition-colors duration-500">{leader.initials}</span>
+          </div>
+          <h3 class="font-semibold text-lg">{leader.name}</h3>
+          <p class="text-arma-dark/50 text-sm mt-1">{leader.title}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

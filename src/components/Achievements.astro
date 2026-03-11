@@ -1,0 +1,72 @@
+---
+const stats = [
+  { value: '40', suffix: '+', label: 'Years of Excellence' },
+  { value: '7', suffix: '', label: 'Sister Companies' },
+  { value: '100', suffix: '+', label: 'Successful Projects' },
+  { value: 'ISO', suffix: '', label: 'Certified Quality' },
+];
+---
+
+<section class="relative py-24 lg:py-28 bg-arma overflow-hidden">
+  <!-- Pattern overlay -->
+  <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 30px, white 30px, white 31px);"></div>
+
+  <!-- Decorative circles -->
+  <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full border border-white/10"></div>
+  <div class="absolute -bottom-32 -right-32 w-80 h-80 rounded-full border border-white/10"></div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="text-center mb-16 fade-up">
+      <span class="text-white/50 text-xs tracking-[0.3em] uppercase font-semibold">By The Numbers</span>
+      <h2 class="font-display text-4xl lg:text-5xl mt-3 text-white">Our Achievements</h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+      {stats.map((stat, i) => (
+        <div class={`text-center fade-up fade-up-delay-${i + 1}`}>
+          <div class="flex items-baseline justify-center gap-1">
+            <span class="counter font-display text-5xl lg:text-6xl text-white" data-target={stat.value}>{stat.value === 'ISO' ? 'ISO' : '0'}</span>
+            {stat.suffix && <span class="font-display text-4xl lg:text-5xl text-white/60">{stat.suffix}</span>}
+          </div>
+          <p class="text-white/50 text-sm tracking-wide mt-2 uppercase">{stat.label}</p>
+          <div class="w-8 h-px bg-white/20 mx-auto mt-4"></div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  function animateCounters() {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      const target = counter.getAttribute('data-target')!;
+      if (target === 'ISO') return;
+
+      const end = parseInt(target);
+      const duration = 2000;
+      const start = performance.now();
+
+      function tick(now: number) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.textContent = Math.floor(eased * end).toString();
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounters();
+        obs.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  const section = document.querySelector('.counter')?.closest('section');
+  if (section) obs.observe(section);
+</script>

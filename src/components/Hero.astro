@@ -1,0 +1,62 @@
+---
+---
+
+<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#071a0e] via-[#0d2a18] to-[#153522]">
+  <!-- Background pattern -->
+  <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, white 60px, white 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, white 60px, white 61px);"></div>
+
+  <!-- Right side image area -->
+  <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0d2a18] via-[#0d2a18]/80 to-transparent z-10"></div>
+    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80')] bg-cover bg-center"></div>
+  </div>
+
+  <!-- Decorative circle -->
+  <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.04] hidden lg:block"></div>
+  <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.06] hidden lg:block"></div>
+
+  <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20 lg:pt-0 lg:pb-0">
+    <div class="max-w-2xl">
+      <!-- Since badge -->
+      <div class="inline-flex items-center gap-3 mb-8">
+        <span class="block w-8 h-px bg-arma"></span>
+        <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">Since 1985</span>
+      </div>
+
+      <!-- Tagline -->
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
+        Powering<br />Infrastructure.<br />
+        <span class="italic text-arma-light/90">Building Bangladesh.</span>
+      </h1>
+
+      <!-- Description -->
+      <p class="text-white/50 text-lg max-w-md leading-relaxed mb-10">
+        A diversified conglomerate delivering excellence across power, infrastructure, real estate, agriculture & education.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4">
+        <a href="#industries" class="group inline-flex items-center gap-2 bg-arma hover:bg-arma/90 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
+          Explore Our Companies
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <a href="#projects" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
+          View Projects
+        </a>
+      </div>
+
+      <!-- Sector tags -->
+      <div class="flex flex-wrap gap-3 mt-16">
+        {['Electric', 'Infrastructure', 'Real Estate', 'Agriculture', 'Education'].map(sector => (
+          <span class="text-[11px] tracking-[0.15em] uppercase text-white/30 border border-white/10 px-3 py-1.5 rounded-full">{sector}</span>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 z-20">
+    <span class="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
+    <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"></div>
+  </div>
+</section>

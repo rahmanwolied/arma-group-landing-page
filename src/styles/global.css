@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+@theme {
+  --color-arma: #037329;
+  --color-arma-light: #e8f0e8;
+  --color-arma-bg: #f8faf8;
+  --color-arma-dark: #1a1a1a;
+  --color-arma-deep: #0d1a12;
+  --font-family-sans: 'DM Sans', system-ui, sans-serif;
+  --font-family-display: 'Instrument Serif', Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.fade-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up-delay-1 { transition-delay: 0.1s; }
+.fade-up-delay-2 { transition-delay: 0.2s; }
+.fade-up-delay-3 { transition-delay: 0.3s; }
+.fade-up-delay-4 { transition-delay: 0.4s; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
