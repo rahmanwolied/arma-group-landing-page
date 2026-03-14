@@ -4,41 +4,69 @@ const leaders = [
     name: 'Md. Abdul Matin',
     title: 'Chairman',
     initials: 'AM',
+    bio: 'Founding visionary and architect of ARMA Group\'s four-decade legacy in Bangladesh\'s infrastructure sector.',
   },
   {
     name: 'Md. Rafiqul Islam',
     title: 'Managing Director',
     initials: 'RI',
+    bio: 'Driving operational excellence and strategic expansion across the group\'s diversified portfolio.',
   },
   {
     name: 'Engineering Division',
     title: 'Technical Leadership',
     initials: 'ET',
+    bio: 'A team of expert engineers delivering precision solutions across power, civil, and industrial sectors.',
   },
 ];
 ---
 
-<section id="leadership" class="py-24 lg:py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+<section id="leadership" class="py-24 lg:py-32 bg-arma-bg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-16">
+
     <!-- Heading -->
-    <div class="text-center mb-16 fade-up">
-      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">The Team</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Leadership</h2>
-      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+    <div class="flex items-end justify-between mb-16 fade-up">
+      <div>
+        <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-arma">The Team</span>
+        <h2 class="font-display text-[clamp(40px,5.5vw,64px)] font-light mt-2 leading-tight">Our Leadership</h2>
+      </div>
     </div>
 
     <!-- Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 max-w-4xl">
       {leaders.map((leader, i) => (
-        <div class={`group text-center fade-up fade-up-delay-${i + 1}`}>
-          <!-- Photo placeholder -->
-          <div class="w-36 h-36 rounded-full mx-auto mb-6 bg-gradient-to-br from-arma-light to-arma/10 flex items-center justify-center border-2 border-arma/10 group-hover:border-arma/30 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-arma/10">
-            <span class="font-display text-3xl text-arma/40 group-hover:text-arma/60 transition-colors duration-500">{leader.initials}</span>
+        <div class={`group fade-up fade-up-delay-${i + 1}`}>
+
+          <!-- Photo / initials frame -->
+          <div class="relative w-full aspect-[4/3] mb-6 overflow-hidden bg-arma-dark/[0.04] border border-arma-dark/[0.08] group-hover:border-arma/25 transition-all duration-500">
+            <!-- Geometric grid backdrop -->
+            <div class="absolute inset-0 opacity-[0.06]"
+              style="background-image: linear-gradient(rgba(12,26,15,1) 1px, transparent 1px), linear-gradient(90deg, rgba(12,26,15,1) 1px, transparent 1px); background-size: 20px 20px;">
+            </div>
+            <!-- Initials -->
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-display text-[clamp(48px,6vw,72px)] font-light text-arma/15 group-hover:text-arma/28 transition-colors duration-500">
+                {leader.initials}
+              </span>
+            </div>
+            <!-- Corner accent -->
+            <div class="absolute top-3 left-3 w-4 h-4 border-l border-t border-arma/20 group-hover:border-arma/50 transition-colors duration-400"></div>
+            <div class="absolute bottom-3 right-3 w-4 h-4 border-r border-b border-arma/20 group-hover:border-arma/50 transition-colors duration-400"></div>
           </div>
-          <h3 class="font-semibold text-lg">{leader.name}</h3>
-          <p class="text-arma-dark/50 text-sm mt-1">{leader.title}</p>
+
+          <!-- Info -->
+          <div>
+            <h3 class="font-display text-[clamp(20px,2.5vw,26px)] font-light text-arma-dark leading-tight">{leader.name}</h3>
+            <div class="flex items-center gap-2.5 mt-1.5 mb-3">
+              <span class="w-1 h-1 rounded-full bg-arma"></span>
+              <span class="font-mono text-[10px] tracking-[0.25em] uppercase text-arma/70">{leader.title}</span>
+            </div>
+            <p class="text-arma-dark/45 text-[13px] leading-relaxed font-light">{leader.bio}</p>
+          </div>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>

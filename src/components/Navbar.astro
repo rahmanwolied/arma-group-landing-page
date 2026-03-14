@@ -1,118 +1,87 @@
 ---
 const navLinks = [
   { label: 'Industries', href: '#industries' },
-  { label: 'Journey', href: '#journey' },
-  { label: 'Projects', href: '#projects' },
+  { label: 'Journey',    href: '#journey' },
+  { label: 'Projects',   href: '#projects' },
   { label: 'Leadership', href: '#leadership' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Contact',    href: '#contact' },
 ];
 ---
 
 <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between h-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-16 flex items-center justify-between h-[72px]">
+
     <!-- Logo -->
-    <a href="#" class="flex items-center gap-2">
-      <span class="font-display text-2xl tracking-tight nav-text transition-colors duration-500 text-white">ARMA</span>
-      <span class="hidden sm:inline text-xs tracking-[0.2em] uppercase nav-text-sub transition-colors duration-500 text-white/60">Group</span>
+    <a href="#" class="flex items-center gap-2.5">
+      <span class="font-display text-[26px] font-light tracking-tight nav-text text-white transition-colors duration-400">ARMA</span>
+      <span class="hidden sm:inline font-mono text-[9px] tracking-[0.3em] uppercase nav-text-sub text-white/45 transition-colors duration-400">Group</span>
     </a>
 
     <!-- Desktop Nav -->
-    <div class="hidden md:flex items-center gap-8">
+    <div class="hidden md:flex items-center gap-9">
       {navLinks.map(link => (
-        <a href={link.href} class="nav-link text-sm tracking-wide transition-colors duration-300 text-white/70 hover:text-white">{link.label}</a>
+        <a href={link.href}
+          class="nav-link text-[11px] font-medium tracking-[0.15em] uppercase text-white/55 hover:text-white transition-colors duration-300">
+          {link.label}
+        </a>
       ))}
     </div>
 
-    <!-- Mobile Hamburger -->
-    <button id="mobile-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle menu">
-      <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
-      <span class="hamburger-line block w-6 h-0.5 bg-white transition-all duration-300"></span>
-      <span class="hamburger-line block w-4 h-0.5 bg-white transition-all duration-300 ml-auto"></span>
+    <!-- Mobile toggle -->
+    <button id="mobile-toggle" class="md:hidden flex flex-col gap-[5px] p-2" aria-label="Toggle menu">
+      <span class="hamburger-line block w-6 h-[1.5px] bg-white transition-all duration-300"></span>
+      <span class="hamburger-line block w-6 h-[1.5px] bg-white transition-all duration-300"></span>
+      <span class="hamburger-line block w-4 h-[1.5px] bg-white transition-all duration-300 ml-auto"></span>
     </button>
+
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile menu -->
   <div id="mobile-menu" class="md:hidden max-h-0 overflow-hidden transition-all duration-500 ease-in-out">
-    <div class="px-6 pb-6 flex flex-col gap-4">
+    <div class="px-6 pb-6 pt-2 flex flex-col gap-5 border-t border-white/[0.08]">
       {navLinks.map(link => (
-        <a href={link.href} class="mobile-link text-sm tracking-wide transition-colors duration-300 text-white/70 hover:text-white">{link.label}</a>
+        <a href={link.href}
+          class="mobile-link text-[11px] font-medium tracking-[0.15em] uppercase text-white/55 hover:text-white transition-colors duration-300">
+          {link.label}
+        </a>
       ))}
     </div>
   </div>
 </nav>
 
 <script>
-  const navbar = document.getElementById('navbar');
-  const toggle = document.getElementById('mobile-toggle');
-  const menu = document.getElementById('mobile-menu');
-  let scrolled = false;
-  let menuOpen = false;
+  const navbar   = document.getElementById('navbar')!;
+  const toggle   = document.getElementById('mobile-toggle')!;
+  const menu     = document.getElementById('mobile-menu')!;
+  let scrolled   = false;
+  let menuOpen   = false;
 
   function updateNav() {
-    const isScrolled = window.scrollY > 50;
+    const isScrolled = window.scrollY > 60;
     if (isScrolled === scrolled) return;
     scrolled = isScrolled;
 
     if (isScrolled) {
-      navbar!.classList.add('bg-white', 'shadow-sm', 'shadow-black/5');
-      navbar!.querySelectorAll('.nav-text').forEach(el => {
-        el.classList.remove('text-white');
-        el.classList.add('text-arma-dark');
-      });
-      navbar!.querySelectorAll('.nav-text-sub').forEach(el => {
-        el.classList.remove('text-white/60');
-        el.classList.add('text-arma-dark/50');
-      });
-      navbar!.querySelectorAll('.nav-link').forEach(el => {
-        el.classList.remove('text-white/70', 'hover:text-white');
-        el.classList.add('text-arma-dark/60', 'hover:text-arma');
-      });
-      navbar!.querySelectorAll('.mobile-link').forEach(el => {
-        el.classList.remove('text-white/70', 'hover:text-white');
-        el.classList.add('text-arma-dark/60', 'hover:text-arma');
-      });
-      navbar!.querySelectorAll('.hamburger-line').forEach(el => {
-        el.classList.remove('bg-white');
-        el.classList.add('bg-arma-dark');
-      });
+      navbar.style.cssText = 'background:rgba(4,9,6,0.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.05)';
+      navbar.querySelectorAll<HTMLElement>('.nav-text').forEach(el  => { el.style.color = '#ffffff'; });
+      navbar.querySelectorAll<HTMLElement>('.nav-text-sub').forEach(el => { el.style.color = 'rgba(255,255,255,0.35)'; });
+      navbar.querySelectorAll<HTMLElement>('.nav-link').forEach(el  => { el.style.color = 'rgba(255,255,255,0.5)'; });
     } else {
-      navbar!.classList.remove('bg-white', 'shadow-sm', 'shadow-black/5');
-      navbar!.querySelectorAll('.nav-text').forEach(el => {
-        el.classList.add('text-white');
-        el.classList.remove('text-arma-dark');
-      });
-      navbar!.querySelectorAll('.nav-text-sub').forEach(el => {
-        el.classList.add('text-white/60');
-        el.classList.remove('text-arma-dark/50');
-      });
-      navbar!.querySelectorAll('.nav-link').forEach(el => {
-        el.classList.add('text-white/70', 'hover:text-white');
-        el.classList.remove('text-arma-dark/60', 'hover:text-arma');
-      });
-      navbar!.querySelectorAll('.mobile-link').forEach(el => {
-        el.classList.add('text-white/70', 'hover:text-white');
-        el.classList.remove('text-arma-dark/60', 'hover:text-arma');
-      });
-      navbar!.querySelectorAll('.hamburger-line').forEach(el => {
-        el.classList.add('bg-white');
-        el.classList.remove('bg-arma-dark');
-      });
+      navbar.style.cssText = '';
+      navbar.querySelectorAll<HTMLElement>('.nav-text').forEach(el  => { el.style.color = ''; });
+      navbar.querySelectorAll<HTMLElement>('.nav-text-sub').forEach(el => { el.style.color = ''; });
+      navbar.querySelectorAll<HTMLElement>('.nav-link').forEach(el  => { el.style.color = ''; });
     }
   }
 
-  toggle?.addEventListener('click', () => {
+  toggle.addEventListener('click', () => {
     menuOpen = !menuOpen;
-    if (menuOpen) {
-      menu!.style.maxHeight = menu!.scrollHeight + 'px';
-    } else {
-      menu!.style.maxHeight = '0';
-    }
+    menu.style.maxHeight = menuOpen ? menu.scrollHeight + 'px' : '0';
   });
-
-  menu?.querySelectorAll('a').forEach(a => {
+  menu.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       menuOpen = false;
-      menu!.style.maxHeight = '0';
+      menu.style.maxHeight = '0';
     });
   });
 

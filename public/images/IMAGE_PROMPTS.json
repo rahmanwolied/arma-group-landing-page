@@ -1,0 +1,83 @@
+[
+  {
+    "id": "hero",
+    "filename": "hero.jpg",
+    "usage": "Hero section right-panel background",
+    "current_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1800&q=90",
+    "prompt": "Dramatic wide-angle aerial shot of massive high-voltage transmission towers stretching across the Bangladesh delta landscape at golden hour, warm amber and deep orange sky, long shadows cast across lush green fields, power lines converging toward the horizon, volumetric god rays breaking through clouds, cinematic depth of field, ultra-realistic DSLR photography, 8K resolution, professional industrial photography, slight lens flare, rich saturation",
+    "aspectRatio": "16:9",
+    "quality": "quality"
+  },
+  {
+    "id": "electric",
+    "filename": "electric.jpg",
+    "usage": "Industries - ARMA Electric card",
+    "current_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1000&q=88",
+    "prompt": "Imposing steel lattice high-voltage transmission towers silhouetted against a dramatic twilight sky, electric blue and deep violet clouds, multiple power lines fanning outward in perfect geometric symmetry, foreground low-angle perspective emphasizing tower scale, subtle electrical corona glow on conductors, crisp industrial textures, photorealistic, cinematic color grading, ultra-sharp detail on steel girders, professional energy sector photography",
+    "aspectRatio": "4:3",
+    "quality": "quality"
+  },
+  {
+    "id": "infrastructure",
+    "filename": "infrastructure.jpg",
+    "usage": "Industries - Infrastructure card",
+    "current_url": "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=88",
+    "prompt": "Sweeping aerial perspective of a massive cable-stayed bridge under construction spanning a wide Bangladeshi river, construction cranes towering over concrete pylons, river reflecting golden morning light, busy barge activity below, workers visible at scale, dust and morning haze adding atmosphere, photorealistic drone photography, warm natural light, rich earth tones of concrete and steel, cinematic wide crop",
+    "aspectRatio": "4:3",
+    "quality": "quality"
+  },
+  {
+    "id": "real-estate",
+    "filename": "real-estate.jpg",
+    "usage": "Industries - Real Estate card",
+    "current_url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=88",
+    "prompt": "Sleek cluster of modern glass-and-steel high-rise residential towers rising above the Dhaka skyline at dusk, blue-hour sky with deep indigo clouds, warm amber lights glowing from hundreds of apartment windows, reflective glass facades mirroring the city below, manicured podium landscaping with palm trees, luxury architectural photography, tilt-shift effect, ultra-realistic, premium real estate marketing aesthetic",
+    "aspectRatio": "4:3",
+    "quality": "quality"
+  },
+  {
+    "id": "agriculture",
+    "filename": "agriculture.jpg",
+    "usage": "Industries - Agriculture card",
+    "current_url": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=88",
+    "prompt": "Expansive lush green paddy fields and farmland in rural Bangladesh bathed in soft morning light, rows of healthy crops stretching to the horizon, a cluster of modern agricultural buildings and silos in the mid-ground, Holstein dairy cows grazing in vivid green pasture, golden sunlight filtering through low morning mist, photorealistic landscape photography, rich saturated greens, peaceful and productive rural atmosphere",
+    "aspectRatio": "4:3",
+    "quality": "quality"
+  },
+  {
+    "id": "education",
+    "filename": "education.jpg",
+    "usage": "Industries - Education card",
+    "current_url": "https://images.unsplash.com/photo-1523050854058-8df90110c476?w=800&q=88",
+    "prompt": "Stately modern university campus building with contemporary architecture, clean white and glass facade surrounded by mature trees and manicured lawns, students walking along paved pathways in bright natural daylight, blue sky with soft clouds, wide-angle exterior architectural photography, warm inviting sunlight, fresh and aspirational academic atmosphere, photorealistic, sharp architectural detail, professional institutional photography",
+    "aspectRatio": "4:3",
+    "quality": "quality"
+  },
+  {
+    "id": "project-transmission",
+    "filename": "project-transmission.jpg",
+    "usage": "Projects - Featured transmission card",
+    "current_url": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=90",
+    "prompt": "Heroic perspective looking up along a 400kV extra-high-voltage transmission line corridor cutting through rural Bangladesh landscape, massive steel lattice towers receding into the horizon, lush green rice paddies flanking both sides, dramatic cumulus clouds in a vivid blue sky, crisp photorealistic detail on conductor bundles and insulator strings, warm natural light, wide cinematic crop, professional power infrastructure photography",
+    "aspectRatio": "2:3",
+    "quality": "quality"
+  },
+  {
+    "id": "project-real-estate",
+    "filename": "project-real-estate.jpg",
+    "usage": "Projects - Real Estate project card",
+    "current_url": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=88",
+    "prompt": "Elegant luxury residential apartment tower complex photographed at night, warm golden light glowing from floor-to-ceiling windows across every level, glass facade reflecting city lights, beautifully lit swimming pool and landscaped podium in foreground, deep navy blue night sky, long-exposure photography smoothing surrounding traffic into light trails, ultra-realistic architectural night photography, premium developer marketing aesthetic, tack-sharp facade detail",
+    "aspectRatio": "2:3",
+    "quality": "quality"
+  },
+  {
+    "id": "project-agriculture",
+    "filename": "project-agriculture.jpg",
+    "usage": "Projects - Agricultural project card",
+    "current_url": "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=88",
+    "prompt": "Modern sustainable dairy farm facility interior with rows of healthy Holstein cows in clean well-lit free-stall barns, state-of-the-art automated milking equipment in operation, gleaming stainless steel pipework, professional farm workers in white uniforms monitoring operations, bright even overhead lighting, photorealistic industrial agricultural photography, crisp clinical cleanliness, wide-angle shot showing operational scale, warm natural light from side ventilation panels",
+    "aspectRatio": "2:3",
+    "quality": "quality"
+  }
+]

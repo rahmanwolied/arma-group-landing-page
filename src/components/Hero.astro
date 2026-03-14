@@ -1,62 +1,105 @@
 ---
+const stats = [
+  { value: '40+', label: 'Years of Excellence' },
+  { value: '7',   label: 'Sister Companies' },
+  { value: '100+', label: 'Projects Delivered' },
+];
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#071a0e] via-[#0d2a18] to-[#153522]">
-  <!-- Background pattern -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, white 60px, white 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, white 60px, white 61px);"></div>
+<section class="relative min-h-screen flex flex-col overflow-hidden bg-arma-deep">
 
-  <!-- Right side image area -->
-  <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0d2a18] via-[#0d2a18]/80 to-transparent z-10"></div>
-    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80')] bg-cover bg-center"></div>
+  <!-- Background image -->
+  <div class="absolute inset-0">
+    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1800&q=90')] bg-cover bg-center"></div>
+    <!-- Layered overlays for depth -->
+    <div class="absolute inset-0 bg-gradient-to-r from-arma-deep via-arma-deep/88 to-arma-deep/35"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-arma-deep/70 via-transparent to-arma-deep/20"></div>
+    <!-- Green color wash -->
+    <div class="absolute inset-0 mix-blend-multiply" style="background: rgba(3,115,41,0.12)"></div>
   </div>
 
-  <!-- Decorative circle -->
-  <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.04] hidden lg:block"></div>
-  <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.06] hidden lg:block"></div>
+  <!-- Architectural grid overlay -->
+  <div class="absolute inset-0 opacity-[0.03]"
+    style="background-image: linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px); background-size: 80px 80px;">
+  </div>
 
-  <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20 lg:pt-0 lg:pb-0">
-    <div class="max-w-2xl">
-      <!-- Since badge -->
-      <div class="inline-flex items-center gap-3 mb-8">
-        <span class="block w-8 h-px bg-arma"></span>
-        <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">Since 1985</span>
+  <!-- Giant watermark -->
+  <div class="absolute right-[-2vw] top-1/2 -translate-y-[45%] select-none pointer-events-none hidden lg:block">
+    <span class="font-display font-light tracking-tighter leading-none text-white/[0.028]" style="font-size: clamp(160px, 22vw, 300px)">ARMA</span>
+  </div>
+
+  <!-- Left vertical accent line -->
+  <div class="absolute left-10 lg:left-16 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-arma/25 to-transparent hidden lg:block"></div>
+
+  <!-- Main content -->
+  <div class="relative z-20 flex-1 flex items-center">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16 w-full pt-40 pb-32 lg:pt-0 lg:pb-0">
+      <div class="max-w-[680px]">
+
+        <!-- Meta row -->
+        <div class="flex items-center gap-5 mb-12 fade-up">
+          <span class="inline-flex items-center gap-2.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-arma-accent animate-pulse"></span>
+            <span class="font-mono text-[10px] tracking-[0.4em] uppercase text-arma-accent/75">Est. 1985</span>
+          </span>
+          <div class="w-12 h-px bg-white/12"></div>
+          <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-white/22">Dhaka, Bangladesh</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="fade-up fade-up-delay-1">
+          <span class="block font-display font-light italic leading-[0.9] text-white"
+            style="font-size: clamp(56px, 8.5vw, 108px)">Powering</span>
+          <span class="block font-display font-light leading-[0.9] text-white"
+            style="font-size: clamp(56px, 8.5vw, 108px)">Infrastructure.</span>
+          <span class="block font-display font-light italic leading-[0.95] text-arma-accent/85 mt-3"
+            style="font-size: clamp(46px, 6.8vw, 88px)">Building Bangladesh.</span>
+        </h1>
+
+        <!-- Thin horizontal rule -->
+        <div class="w-28 h-px bg-white/14 my-9 line-grow"></div>
+
+        <!-- Description -->
+        <p class="text-white/40 text-base lg:text-[17px] max-w-[400px] leading-[1.75] mb-12 fade-up fade-up-delay-2 font-light">
+          A diversified conglomerate delivering excellence across power, infrastructure,
+          real estate, agriculture and education for over four decades.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-wrap items-center gap-4 fade-up fade-up-delay-3">
+          <a href="#industries"
+            class="group inline-flex items-center gap-3 bg-arma hover:bg-arma-accent text-white px-8 py-[14px] text-[11px] font-semibold tracking-[0.18em] uppercase transition-all duration-300 hover:shadow-xl hover:shadow-arma/25">
+            Our Industries
+            <svg class="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#projects"
+            class="inline-flex items-center gap-3 border border-white/14 hover:border-white/28 hover:bg-white/[0.04] text-white/60 hover:text-white px-8 py-[14px] text-[11px] font-semibold tracking-[0.18em] uppercase transition-all duration-300">
+            View Projects
+          </a>
+        </div>
+
       </div>
+    </div>
+  </div>
 
-      <!-- Tagline -->
-      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
-        Powering<br />Infrastructure.<br />
-        <span class="italic text-arma-light/90">Building Bangladesh.</span>
-      </h1>
-
-      <!-- Description -->
-      <p class="text-white/50 text-lg max-w-md leading-relaxed mb-10">
-        A diversified conglomerate delivering excellence across power, infrastructure, real estate, agriculture & education.
-      </p>
-
-      <!-- CTAs -->
-      <div class="flex flex-wrap gap-4">
-        <a href="#industries" class="group inline-flex items-center gap-2 bg-arma hover:bg-arma/90 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
-          Explore Our Companies
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="#projects" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
-          View Projects
-        </a>
-      </div>
-
-      <!-- Sector tags -->
-      <div class="flex flex-wrap gap-3 mt-16">
-        {['Electric', 'Infrastructure', 'Real Estate', 'Agriculture', 'Education'].map(sector => (
-          <span class="text-[11px] tracking-[0.15em] uppercase text-white/30 border border-white/10 px-3 py-1.5 rounded-full">{sector}</span>
+  <!-- Bottom stats strip -->
+  <div class="relative z-20 border-t border-white/[0.06]">
+    <div class="max-w-7xl mx-auto px-6 lg:px-16">
+      <div class="grid grid-cols-3 divide-x divide-white/[0.06]">
+        {stats.map((stat, i) => (
+          <div class={`py-6 lg:py-7 ${i === 0 ? 'pl-0 pr-6 lg:pr-10' : i === 2 ? 'pl-6 lg:pl-10 pr-0' : 'px-6 lg:px-10'}`}>
+            <div class="font-display font-light text-white" style="font-size: clamp(26px, 3.5vw, 40px)">{stat.value}</div>
+            <div class="font-mono text-[9px] tracking-[0.22em] uppercase text-white/28 mt-1.5">{stat.label}</div>
+          </div>
         ))}
       </div>
     </div>
   </div>
 
-  <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 z-20">
-    <span class="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-    <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"></div>
+  <!-- Vertical scroll label -->
+  <div class="absolute bottom-28 right-8 lg:right-14 flex-col items-center gap-3 text-white/18 z-20 hidden lg:flex">
+    <span class="font-mono text-[8px] tracking-[0.35em] uppercase" style="writing-mode: vertical-rl">Scroll Down</span>
+    <div class="w-px h-14 bg-gradient-to-b from-white/20 to-transparent"></div>
   </div>
+
 </section>

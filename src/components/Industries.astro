@@ -4,77 +4,106 @@ const industries = [
     num: '01',
     name: 'ARMA Electric',
     desc: 'Power generation, transmission lines & electrical distribution across Bangladesh.',
-    color: 'from-[#0a3318] to-[#165c2e]',
-    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
+    tag: 'Power & Energy',
+    image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1000&q=88',
   },
   {
     num: '02',
     name: 'Infrastructure',
     desc: 'Civil engineering & structural development for national growth.',
-    color: 'from-[#1a3a2a] to-[#2a5a3a]',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
+    tag: 'Civil Engineering',
+    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=88',
   },
   {
     num: '03',
     name: 'Real Estate',
     desc: 'Premium residential and commercial property development.',
-    color: 'from-[#2a4a3a] to-[#3a6a4a]',
-    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
+    tag: 'Property',
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=88',
   },
   {
     num: '04',
     name: 'Agriculture',
     desc: 'Sustainable farming, dairy and agricultural innovation.',
-    color: 'from-[#1a4a28] to-[#2a6a38]',
-    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80',
+    tag: 'Agri-Business',
+    image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=88',
   },
   {
     num: '05',
     name: 'Education',
     desc: 'Building the next generation through quality education.',
-    color: 'from-[#0d4020] to-[#1d5530]',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c476?w=600&q=80',
+    tag: 'Academic',
+    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c476?w=800&q=88',
   },
 ];
 ---
 
-<section id="industries" class="py-24 lg:py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <!-- Heading -->
-    <div class="text-center mb-16 fade-up">
-      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">What We Do</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Industries</h2>
-      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+<section id="industries" class="py-24 lg:py-32 bg-arma-bg">
+  <div class="max-w-7xl mx-auto px-6 lg:px-16">
+
+    <!-- Section heading -->
+    <div class="flex items-end justify-between mb-16 fade-up">
+      <div>
+        <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-arma">What We Do</span>
+        <h2 class="font-display text-[clamp(40px,5.5vw,64px)] font-light mt-2 leading-tight">Our Industries</h2>
+      </div>
+      <div class="hidden lg:flex items-center gap-3 text-arma-dark/30">
+        <div class="w-16 h-px bg-arma-dark/15 line-grow"></div>
+        <span class="font-mono text-[9px] tracking-[0.3em] uppercase">5 Sectors</span>
+      </div>
     </div>
 
-    <!-- Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[560px]">
+    <!-- Bento grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-3 h-auto md:h-[600px]">
       {industries.map((ind, i) => (
         <div
           class:list={[
-            'group relative rounded-xl overflow-hidden cursor-pointer fade-up',
-            i === 0 ? 'md:row-span-2 min-h-[280px]' : 'min-h-[180px]',
-            `fade-up-delay-${i + 1}`
+            'group relative overflow-hidden cursor-pointer fade-up',
+            i === 0 ? 'md:row-span-2 min-h-[300px]' : 'min-h-[190px]',
+            `fade-up-delay-${Math.min(i + 1, 5)}`
           ]}
         >
           <!-- Background image -->
-          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${ind.image}')`}></div>
-          <!-- Gradient overlay -->
-          <div class={`absolute inset-0 bg-gradient-to-t ${ind.color} opacity-80 group-hover:opacity-70 transition-opacity duration-500`}></div>
+          <div
+            class="absolute inset-0 bg-cover bg-center transition-transform duration-700 ease-out group-hover:scale-[1.06]"
+            style={`background-image: url('${ind.image}')`}
+          ></div>
+
+          <!-- Dark overlay: base + hover -->
+          <div class="absolute inset-0 bg-arma-deep/55 group-hover:bg-arma-deep/45 transition-all duration-500"></div>
+          <!-- Bottom gradient for text legibility -->
+          <div class="absolute inset-0 bg-gradient-to-t from-arma-deep/90 via-arma-deep/20 to-transparent"></div>
+          <!-- Green tint wash -->
+          <div class="absolute inset-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-70" style="background: rgba(3,115,41,0.18)"></div>
+
+          <!-- Number watermark -->
+          <div class="absolute top-4 left-5 select-none pointer-events-none">
+            <span class="font-display text-[clamp(56px,8vw,100px)] font-light leading-none text-white/[0.04] group-hover:text-white/[0.07] transition-all duration-500">{ind.num}</span>
+          </div>
 
           <!-- Content -->
-          <div class="relative h-full flex flex-col justify-end p-6 lg:p-8">
-            <span class="text-white/30 text-xs tracking-[0.2em] uppercase mb-1">{ind.num}</span>
-            <h3 class="text-white text-xl lg:text-2xl font-semibold mb-1">{ind.name}</h3>
-            <p class="text-white/60 text-sm leading-relaxed max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-500">{ind.desc}</p>
+          <div class="relative h-full flex flex-col justify-end p-6 lg:p-7">
+            <!-- Tag pill -->
+            <span class="inline-flex items-center w-fit mb-3 font-mono text-[9px] tracking-[0.25em] uppercase text-arma-accent/80 bg-white/[0.06] backdrop-blur-sm border border-white/10 px-2.5 py-1">
+              {ind.tag}
+            </span>
+            <h3 class="font-display font-light text-white leading-tight" style={`font-size: ${i === 0 ? 'clamp(28px, 3vw, 38px)' : 'clamp(22px, 2.5vw, 28px)'}`}>
+              {ind.name}
+            </h3>
+            <!-- Description: hidden until hover -->
+            <p class="text-white/50 text-[13px] leading-relaxed mt-2 max-h-0 overflow-hidden group-hover:max-h-16 transition-all duration-500 font-light">
+              {ind.desc}
+            </p>
           </div>
 
-          <!-- Arrow -->
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-            <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+          <!-- Arrow button -->
+          <div class="absolute top-5 right-5 w-8 h-8 flex items-center justify-center border border-white/15 bg-white/[0.06] backdrop-blur-sm opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-350">
+            <svg class="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
           </div>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>

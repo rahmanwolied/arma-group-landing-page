@@ -1,56 +1,81 @@
 ---
 const stats = [
-  { value: '40', suffix: '+', label: 'Years of Excellence' },
-  { value: '7', suffix: '', label: 'Sister Companies' },
-  { value: '100', suffix: '+', label: 'Successful Projects' },
-  { value: 'ISO', suffix: '', label: 'Certified Quality' },
+  { value: '40', suffix: '+', label: 'Years of Excellence', detail: 'Since 1985' },
+  { value: '7',  suffix: '',  label: 'Sister Companies',    detail: 'Across Sectors' },
+  { value: '100', suffix: '+', label: 'Projects Completed', detail: 'Nationwide' },
+  { value: 'ISO', suffix: '', label: 'Certified Quality',   detail: '9001 & 14001' },
 ];
 ---
 
-<section class="relative py-24 lg:py-28 bg-arma overflow-hidden">
-  <!-- Pattern overlay -->
-  <div class="absolute inset-0 opacity-[0.04]" style="background-image: repeating-linear-gradient(45deg, transparent, transparent 30px, white 30px, white 31px);"></div>
+<section class="relative py-24 lg:py-28 bg-arma-dark overflow-hidden">
 
-  <!-- Decorative circles -->
-  <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full border border-white/10"></div>
-  <div class="absolute -bottom-32 -right-32 w-80 h-80 rounded-full border border-white/10"></div>
+  <!-- Fine grid -->
+  <div class="absolute inset-0 opacity-[0.04]"
+    style="background-image: linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px); background-size: 60px 60px;">
+  </div>
 
-  <div class="relative max-w-7xl mx-auto px-6 lg:px-8">
-    <div class="text-center mb-16 fade-up">
-      <span class="text-white/50 text-xs tracking-[0.3em] uppercase font-semibold">By The Numbers</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-3 text-white">Our Achievements</h2>
+  <!-- Large watermark -->
+  <div class="absolute inset-0 flex items-center justify-center select-none pointer-events-none overflow-hidden">
+    <span class="font-display font-light text-white/[0.02] leading-none tracking-tighter whitespace-nowrap" style="font-size: clamp(100px, 18vw, 220px)">EXCELLENCE</span>
+  </div>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-16">
+
+    <!-- Heading -->
+    <div class="mb-16 lg:mb-20 fade-up">
+      <span class="font-mono text-[10px] tracking-[0.35em] uppercase text-arma-accent/60">By The Numbers</span>
+      <h2 class="font-display text-[clamp(40px,5.5vw,64px)] font-light mt-2 text-white leading-tight">Our Achievements</h2>
     </div>
 
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <!-- Stats grid -->
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/[0.06]">
       {stats.map((stat, i) => (
-        <div class={`text-center fade-up fade-up-delay-${i + 1}`}>
-          <div class="flex items-baseline justify-center gap-1">
-            <span class="counter font-display text-5xl lg:text-6xl text-white" data-target={stat.value}>{stat.value === 'ISO' ? 'ISO' : '0'}</span>
-            {stat.suffix && <span class="font-display text-4xl lg:text-5xl text-white/60">{stat.suffix}</span>}
+        <div class={`group relative py-12 px-6 lg:px-10 fade-up fade-up-delay-${i + 1} ${i % 2 === 0 ? '' : ''}`}>
+
+          <!-- Top accent line -->
+          <div class="w-8 h-px bg-arma mb-6 line-grow"></div>
+
+          <!-- Value -->
+          <div class="flex items-baseline gap-1 mb-2">
+            <span
+              class="counter font-display font-light leading-none text-white"
+              style="font-size: clamp(52px, 7vw, 80px)"
+              data-target={stat.value}
+            >
+              {stat.value === 'ISO' ? 'ISO' : '0'}
+            </span>
+            {stat.suffix && (
+              <span class="font-display font-light text-arma-accent/60" style="font-size: clamp(36px, 5vw, 56px)">{stat.suffix}</span>
+            )}
           </div>
-          <p class="text-white/50 text-sm tracking-wide mt-2 uppercase">{stat.label}</p>
-          <div class="w-8 h-px bg-white/20 mx-auto mt-4"></div>
+
+          <!-- Label -->
+          <p class="font-semibold text-[12px] text-white/60 tracking-wide mb-1">{stat.label}</p>
+
+          <!-- Detail -->
+          <span class="font-mono text-[9px] tracking-[0.22em] uppercase text-white/22">{stat.detail}</span>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
 <script>
   function animateCounters() {
-    const counters = document.querySelectorAll('.counter');
-    counters.forEach(counter => {
+    document.querySelectorAll<HTMLElement>('.counter').forEach(counter => {
       const target = counter.getAttribute('data-target')!;
       if (target === 'ISO') return;
 
       const end = parseInt(target);
-      const duration = 2000;
+      const duration = 2200;
       const start = performance.now();
 
       function tick(now: number) {
-        const elapsed = now - start;
+        const elapsed  = now - start;
         const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
+        const eased    = 1 - Math.pow(1 - progress, 4);
         counter.textContent = Math.floor(eased * end).toString();
         if (progress < 1) requestAnimationFrame(tick);
       }
@@ -58,14 +83,17 @@ const stats = [
     });
   }
 
-  const obs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateCounters();
-        obs.disconnect();
-      }
-    });
-  }, { threshold: 0.3 });
+  const obs = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+          obs.disconnect();
+        }
+      });
+    },
+    { threshold: 0.25 }
+  );
 
   const section = document.querySelector('.counter')?.closest('section');
   if (section) obs.observe(section);
