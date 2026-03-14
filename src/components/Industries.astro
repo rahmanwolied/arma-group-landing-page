@@ -1,80 +1,68 @@
 ---
 const industries = [
   {
-    num: '01',
     name: 'ARMA Electric',
     desc: 'Power generation, transmission lines & electrical distribution across Bangladesh.',
-    color: 'from-[#0a3318] to-[#165c2e]',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>',
     image: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&q=80',
   },
   {
-    num: '02',
     name: 'Infrastructure',
     desc: 'Civil engineering & structural development for national growth.',
-    color: 'from-[#1a3a2a] to-[#2a5a3a]',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"/></svg>',
     image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
   },
   {
-    num: '03',
     name: 'Real Estate',
     desc: 'Premium residential and commercial property development.',
-    color: 'from-[#2a4a3a] to-[#3a6a4a]',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3H18"/></svg>',
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80',
   },
   {
-    num: '04',
     name: 'Agriculture',
     desc: 'Sustainable farming, dairy and agricultural innovation.',
-    color: 'from-[#1a4a28] to-[#2a6a38]',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"/></svg>',
     image: 'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80',
   },
   {
-    num: '05',
     name: 'Education',
     desc: 'Building the next generation through quality education.',
-    color: 'from-[#0d4020] to-[#1d5530]',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"/></svg>',
     image: 'https://images.unsplash.com/photo-1523050854058-8df90110c476?w=600&q=80',
   },
 ];
 ---
 
-<section id="industries" class="py-24 lg:py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <!-- Heading -->
+<section id="industries" class="relative py-24 lg:py-32 overflow-hidden">
+  <!-- Background -->
+  <div class="absolute inset-0 bg-gradient-to-b from-navy-light via-navy to-navy"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+    <!-- Section header -->
     <div class="text-center mb-16 fade-up">
-      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">What We Do</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Industries</h2>
-      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="h-px w-8 bg-electric/40"></div>
+        <span class="text-electric text-[11px] tracking-[0.3em] uppercase font-bold">What We Do</span>
+        <div class="h-px w-8 bg-electric/40"></div>
+      </div>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold">Our Industries</h2>
     </div>
 
-    <!-- Bento Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-2 gap-4 h-auto md:h-[560px]">
+    <!-- Industry cards row -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
       {industries.map((ind, i) => (
-        <div
-          class:list={[
-            'group relative rounded-xl overflow-hidden cursor-pointer fade-up',
-            i === 0 ? 'md:row-span-2 min-h-[280px]' : 'min-h-[180px]',
-            `fade-up-delay-${i + 1}`
-          ]}
-        >
-          <!-- Background image -->
-          <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${ind.image}')`}></div>
-          <!-- Gradient overlay -->
-          <div class={`absolute inset-0 bg-gradient-to-t ${ind.color} opacity-80 group-hover:opacity-70 transition-opacity duration-500`}></div>
-
-          <!-- Content -->
-          <div class="relative h-full flex flex-col justify-end p-6 lg:p-8">
-            <span class="text-white/30 text-xs tracking-[0.2em] uppercase mb-1">{ind.num}</span>
-            <h3 class="text-white text-xl lg:text-2xl font-semibold mb-1">{ind.name}</h3>
-            <p class="text-white/60 text-sm leading-relaxed max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-500">{ind.desc}</p>
+        <div class={`group glass-card rounded-2xl p-6 text-center cursor-pointer fade-up fade-up-delay-${i + 1} hover:-translate-y-1`}>
+          <!-- Icon -->
+          <div class="w-14 h-14 rounded-xl bg-electric/10 border border-electric/15 flex items-center justify-center mx-auto mb-4 group-hover:bg-electric/20 group-hover:border-electric/30 transition-all duration-500">
+            <div class="w-6 h-6 text-electric" set:html={ind.icon} />
           </div>
-
-          <!-- Arrow -->
-          <div class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
-            <svg class="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-          </div>
+          <h3 class="text-white text-sm font-bold mb-2">{ind.name}</h3>
+          <p class="text-slate-dim text-xs leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-20 transition-all duration-500 overflow-hidden">{ind.desc}</p>
         </div>
       ))}
     </div>
   </div>
+
+  <!-- Bottom energy line -->
+  <div class="absolute bottom-0 left-0 right-0 section-divider"></div>
 </section>

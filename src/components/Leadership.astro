@@ -1,44 +1,61 @@
 ---
 const leaders = [
   {
-    name: 'Md. Abdul Matin',
+    name: 'Chairman',
     title: 'Chairman',
-    initials: 'AM',
+    initials: 'CH',
+    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',
   },
   {
-    name: 'Md. Rafiqul Islam',
+    name: 'Managing Director',
     title: 'Managing Director',
-    initials: 'RI',
+    initials: 'MD',
+    image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&q=80',
   },
   {
-    name: 'Engineering Division',
-    title: 'Technical Leadership',
+    name: 'Engineering Team',
+    title: 'Engineering Team',
     initials: 'ET',
+    image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&q=80',
   },
 ];
 ---
 
-<section id="leadership" class="py-24 lg:py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-6 lg:px-8">
-    <!-- Heading -->
+<section id="leadership" class="relative py-24 lg:py-32 overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-navy to-navy-light"></div>
+
+  <div class="relative max-w-[1400px] mx-auto px-6 lg:px-10">
+    <!-- Section header -->
     <div class="text-center mb-16 fade-up">
-      <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">The Team</span>
-      <h2 class="font-display text-4xl lg:text-5xl mt-3">Our Leadership</h2>
-      <div class="w-12 h-0.5 bg-arma mx-auto mt-4"></div>
+      <div class="inline-flex items-center gap-3 mb-4">
+        <div class="h-px w-8 bg-electric/40"></div>
+        <span class="text-electric text-[11px] tracking-[0.3em] uppercase font-bold">The Team</span>
+        <div class="h-px w-8 bg-electric/40"></div>
+      </div>
+      <h2 class="font-display text-4xl lg:text-5xl font-bold">Our Leadership</h2>
     </div>
 
-    <!-- Cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 lg:gap-12 max-w-4xl mx-auto">
+    <!-- Leader cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
       {leaders.map((leader, i) => (
-        <div class={`group text-center fade-up fade-up-delay-${i + 1}`}>
-          <!-- Photo placeholder -->
-          <div class="w-36 h-36 rounded-full mx-auto mb-6 bg-gradient-to-br from-arma-light to-arma/10 flex items-center justify-center border-2 border-arma/10 group-hover:border-arma/30 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-arma/10">
-            <span class="font-display text-3xl text-arma/40 group-hover:text-arma/60 transition-colors duration-500">{leader.initials}</span>
+        <div class={`group glass-card rounded-2xl overflow-hidden fade-up fade-up-delay-${i + 1} hover:-translate-y-1`}>
+          <!-- Photo -->
+          <div class="relative h-56 overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={`background-image: url('${leader.image}')`}></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-navy-light via-transparent to-transparent"></div>
+            <!-- Electric border on hover -->
+            <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-electric/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
-          <h3 class="font-semibold text-lg">{leader.name}</h3>
-          <p class="text-arma-dark/50 text-sm mt-1">{leader.title}</p>
+          <!-- Info -->
+          <div class="p-5 text-center">
+            <h3 class="font-bold text-base text-white">{leader.name}</h3>
+            <p class="text-electric/60 text-xs mt-1 font-semibold tracking-wider uppercase">{leader.title}</p>
+          </div>
         </div>
       ))}
     </div>
   </div>
+
+  <!-- Bottom energy line -->
+  <div class="absolute bottom-0 left-0 right-0 section-divider"></div>
 </section>

@@ -1,62 +1,81 @@
 ---
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-[#071a0e] via-[#0d2a18] to-[#153522]">
-  <!-- Background pattern -->
-  <div class="absolute inset-0 opacity-[0.03]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 60px, white 60px, white 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, white 60px, white 61px);"></div>
+<section class="relative min-h-screen flex items-center overflow-hidden">
+  <!-- Deep dark background with gradient -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#050d1a] via-navy to-navy-light"></div>
 
-  <!-- Right side image area -->
-  <div class="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-    <div class="absolute inset-0 bg-gradient-to-r from-[#0d2a18] via-[#0d2a18]/80 to-transparent z-10"></div>
-    <div class="w-full h-full bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=80')] bg-cover bg-center"></div>
+  <!-- Cityscape background image -->
+  <div class="absolute inset-0">
+    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80')] bg-cover bg-center opacity-20"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-navy via-navy/80 to-navy/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-navy via-navy/60 to-navy/30"></div>
   </div>
 
-  <!-- Decorative circle -->
-  <div class="absolute -right-32 top-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full border border-white/[0.04] hidden lg:block"></div>
-  <div class="absolute -right-16 top-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-white/[0.06] hidden lg:block"></div>
+  <!-- Electric blue energy line across top -->
+  <div class="absolute top-[35%] left-0 right-0 h-px shimmer-line opacity-60"></div>
+  <div class="absolute top-[36%] left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-electric/20 to-transparent blur-sm"></div>
 
-  <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-32 pb-20 lg:pt-0 lg:pb-0">
-    <div class="max-w-2xl">
-      <!-- Since badge -->
-      <div class="inline-flex items-center gap-3 mb-8">
-        <span class="block w-8 h-px bg-arma"></span>
-        <span class="text-arma text-xs tracking-[0.3em] uppercase font-semibold">Since 1985</span>
+  <!-- Floating orbs -->
+  <div class="absolute top-20 right-[20%] w-64 h-64 bg-electric/5 rounded-full blur-[100px] drift-slow"></div>
+  <div class="absolute bottom-32 left-[10%] w-48 h-48 bg-electric/3 rounded-full blur-[80px] drift-medium"></div>
+
+  <!-- Grid pattern overlay -->
+  <div class="absolute inset-0 opacity-[0.02]" style="background-image: repeating-linear-gradient(0deg, transparent, transparent 80px, rgba(14,165,233,0.3) 80px, rgba(14,165,233,0.3) 81px), repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(14,165,233,0.3) 80px, rgba(14,165,233,0.3) 81px);"></div>
+
+  <div class="relative z-10 max-w-[1400px] mx-auto px-6 lg:px-10 w-full pt-32 pb-20 lg:pt-0 lg:pb-0">
+    <div class="max-w-3xl">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-3 mb-8 fade-up">
+        <div class="h-px w-12 bg-gradient-to-r from-electric to-transparent"></div>
+        <span class="text-electric text-[11px] tracking-[0.35em] uppercase font-bold">Since 1985</span>
+        <div class="flex gap-1.5">
+          <span class="text-[10px] text-white/25 tracking-wider">Power</span>
+          <span class="text-electric/30">|</span>
+          <span class="text-[10px] text-white/25 tracking-wider">Real Estate</span>
+          <span class="text-electric/30">|</span>
+          <span class="text-[10px] text-white/25 tracking-wider">Agriculture</span>
+          <span class="text-electric/30">|</span>
+          <span class="text-[10px] text-white/25 tracking-wider">Infrastructure</span>
+        </div>
       </div>
 
-      <!-- Tagline -->
-      <h1 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-[1.1] mb-6">
-        Powering<br />Infrastructure.<br />
-        <span class="italic text-arma-light/90">Building Bangladesh.</span>
+      <!-- Headline -->
+      <h1 class="font-display text-5xl sm:text-6xl lg:text-[5.5rem] font-bold text-white leading-[1.05] mb-6 fade-up fade-up-delay-1">
+        <span class="block">ARMA GROUP</span>
       </h1>
 
+      <p class="font-display text-xl sm:text-2xl lg:text-3xl text-white/60 font-light leading-snug mb-8 fade-up fade-up-delay-2">
+        Powering Infrastructure.<br class="hidden sm:block" />
+        <span class="text-electric-bright">Building Bangladesh.</span>
+      </p>
+
       <!-- Description -->
-      <p class="text-white/50 text-lg max-w-md leading-relaxed mb-10">
+      <p class="text-slate-text text-base max-w-lg leading-relaxed mb-10 fade-up fade-up-delay-3">
         A diversified conglomerate delivering excellence across power, infrastructure, real estate, agriculture & education.
       </p>
 
       <!-- CTAs -->
-      <div class="flex flex-wrap gap-4">
-        <a href="#industries" class="group inline-flex items-center gap-2 bg-arma hover:bg-arma/90 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
+      <div class="flex flex-wrap gap-4 fade-up fade-up-delay-4">
+        <a href="#industries" class="group inline-flex items-center gap-3 bg-electric hover:bg-electric-bright text-navy px-8 py-4 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 hover:shadow-[0_0_30px_rgba(14,165,233,0.3)]">
           Explore Our Companies
-          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <svg class="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="#projects" class="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 text-white px-7 py-3.5 rounded-sm text-sm font-semibold tracking-wide transition-all duration-300">
+        <a href="#projects" class="inline-flex items-center gap-2 border border-white/15 hover:border-electric/40 text-white/80 hover:text-white px-8 py-4 rounded-xl text-sm font-bold tracking-wide transition-all duration-300 hover:bg-white/5">
           View Projects
         </a>
-      </div>
-
-      <!-- Sector tags -->
-      <div class="flex flex-wrap gap-3 mt-16">
-        {['Electric', 'Infrastructure', 'Real Estate', 'Agriculture', 'Education'].map(sector => (
-          <span class="text-[11px] tracking-[0.15em] uppercase text-white/30 border border-white/10 px-3 py-1.5 rounded-full">{sector}</span>
-        ))}
       </div>
     </div>
   </div>
 
   <!-- Scroll indicator -->
-  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 z-20">
-    <span class="text-[10px] tracking-[0.2em] uppercase">Scroll</span>
-    <div class="w-px h-8 bg-gradient-to-b from-white/30 to-transparent"></div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10">
+    <span class="text-[9px] tracking-[0.3em] uppercase text-white/25 font-semibold">Scroll</span>
+    <div class="w-5 h-8 rounded-full border border-white/15 flex justify-center pt-1.5">
+      <div class="w-1 h-2 rounded-full bg-electric/60 animate-bounce"></div>
+    </div>
   </div>
+
+  <!-- Bottom energy line -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-electric/20 to-transparent"></div>
 </section>
